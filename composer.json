@@ -1,0 +1,23 @@
+{
+    "name": "kkstudio/portfolio",
+    "description": "",
+    "authors": [
+        {
+            "name": "kkstudio",
+            "email": "krzysztofbaczkiewicz@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "4.2.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "Kkstudio\\Portfolio\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
