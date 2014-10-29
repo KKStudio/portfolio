@@ -27,8 +27,8 @@ class PortfolioServiceProvider extends ServiceProvider {
 			\Route::get('portfolio/create', '\Kkstudio\Portfolio\Controllers\PortfolioController@create');	
 			\Route::post('portfolio/create', '\Kkstudio\Portfolio\Controllers\PortfolioController@postCreate');
 
-			\Route::get('portfolio/{id}/edit', '\Kkstudio\Portfolio\Controllers\PortfolioController@edit');
-			\Route::post('portfolio/{id}/edit', '\Kkstudio\Portfolio\Controllers\PortfolioController@postEdit');
+			\Route::get('portfolio/{slug}/edit', '\Kkstudio\Portfolio\Controllers\PortfolioController@edit');
+			\Route::post('portfolio/{slug}/edit', '\Kkstudio\Portfolio\Controllers\PortfolioController@postEdit');
 
 			\Route::get('portfolio/{id}/delete', '\Kkstudio\Portfolio\Controllers\PortfolioController@delete');
 			\Route::post('portfolio/{id}/delete', '\Kkstudio\Portfolio\Controllers\PortfolioController@postDelete');

@@ -6,7 +6,7 @@
 
 	<div class=""> 
 
-		{!! Form::open([ 'url' => 'admin/project/' . $project->slug . '/edit']) !!}
+		{!! Form::open([ 'url' => 'admin/portfolio/' . $project->slug . '/edit']) !!}
 
 			{!! Form::submit('Edit project', [ 'class' => 'btn btn-lg btn-primary pull-right']) !!}
 
