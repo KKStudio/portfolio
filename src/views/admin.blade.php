@@ -46,7 +46,7 @@
 						@endif
 					</td>
 					<td>
-						@if($k+1 < count($projectenu))
+						@if($k+1 < count($portfolio))
 						{!! Form::open(['url' => 'admin/portfolio/swap']) !!}
 
 							{!! Form::hidden('id1', $project->id) !!}
