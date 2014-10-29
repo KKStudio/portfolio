@@ -120,8 +120,8 @@ class PortfolioController extends Controller {
 		$id1 = \Request::get('id1');
 		$id2 = \Request::get('id2');
 
-		$first = $portfolio->project($id1);
-		$second = $portfolio->project($id2);
+		$first = $portfolio->projectById($id1);
+		$second = $portfolio->projectById($id2);
 
 		$first->moveAfter($second);
 

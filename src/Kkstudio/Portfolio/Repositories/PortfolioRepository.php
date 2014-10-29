@@ -5,6 +5,12 @@ use Kkstudio\Portfolio\Models\Category as Category;
 
 class PortfolioRepository {
 
+	public function projectById($$id) {
+
+		return Project::findOrFail($id);
+		
+	}
+
 	public function project($slug) {
 
 		return Project::where('slug', $slug)->first();
