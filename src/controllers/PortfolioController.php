@@ -34,7 +34,7 @@ class PortfolioController extends Controller {
 		$description = \Request::get('description');
 		$image = '';
 
-		$exists = $projects->get($slug);
+		$exists = $projects->project($slug);
 
 		if($exists) {
 
