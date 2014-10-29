@@ -6,7 +6,7 @@
 
 	<div class=""> 
 
-		<a href="{{ url('admin/portfolio/create') }}" class="btn btn-lg btn-success pull-right">
+		<a href="{{ url('admin/portfolio/create') }}" style="margin-left: 10px;" class="btn btn-lg btn-success pull-right">
 			Create new project
 		</a>
 
@@ -16,7 +16,7 @@
 			{!! Form::hidden('route', 'portfolio') !!}
 			{!! Form::hidden('params', json_encode([])) !!}
 
-			{!! Form::submit('Add to menu', [ 'class' => 'pull-right btn btn-sm btn-warning']) !!}
+			{!! Form::submit('Add to menu', [ 'class' => 'pull-right btn btn-lg btn-warning']) !!}
 
 		{!! Form::close() !!}
 
