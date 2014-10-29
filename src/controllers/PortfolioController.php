@@ -6,7 +6,7 @@ use Kkstudio\Portfolio\Repositories\PortfolioRepository;
 
 class PortfolioController extends Controller {
 
-	public function index($slug)
+	public function index()
 	{
 		$projects = m('Portfolio')->projects();
 
