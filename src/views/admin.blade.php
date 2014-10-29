@@ -11,7 +11,7 @@
 		</a>
 
 		<div class="clearfix"></div>
-		@if(count($projects))
+		@if(count($portfolio))
 
 		<table class="table table-striped">
 			<thead>
