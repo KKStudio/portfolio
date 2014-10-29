@@ -17,4 +17,24 @@ class Project extends Eloquent {
 
 	}
 
+	public function getThumb() {
+
+		$path = public_path('assets/portfolio/thumb_' . $this->image);
+
+		if(is_readable($path)) return asset('assets/portfolio/thumb_' . $this->image);
+
+		return  asset('assets/portfolio/thumb_default.png');
+
+	}
+
+	public function getImage() {
+
+		$path = public_path('assets/portfolio/' . $this->image);
+
+		if(is_readable($path)) return asset('assets/portfolio/' . $this->image);
+
+		return  asset('assets/portfolio/default.png');
+
+	}
+
 }

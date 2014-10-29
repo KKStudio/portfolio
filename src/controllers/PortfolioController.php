@@ -44,6 +44,22 @@ class PortfolioController extends Controller {
 
 		}
 
+		if(\Input::hasFile('image')) {
+
+			$name = \Str::random(32) . \Str::random(32) . '.png';
+			$image = \Image::make(\Input::file('image')->getRealPath());
+
+            $image->save(public_path('assets/portfolio/' . $name));
+
+            $callback = function ($constraint) { $constraint->upsize(); };
+			$image->widen(320, $callback)->heighten(180, $callback);
+
+            $image->save(public_path('assets/portfolio/thumb_' . $name));
+
+            $image = $name;
+
+		}
+
 		$lp = $projects->max() + 1;
 
 		$project = $projects->create($slug, $name, $description, $image, $lp);
@@ -84,6 +100,22 @@ class PortfolioController extends Controller {
 			\Flash::error('Project with that name already exists.');
 
 			return \Redirect::back()->withInput();
+
+		}
+
+		if(\Input::hasFile('image')) {
+
+			$name = \Str::random(32) . \Str::random(32) . '.png';
+			$image = \Image::make(\Input::file('image')->getRealPath());
+
+            $image->save(public_path('assets/portfolio/' . $name));
+
+            $callback = function ($constraint) { $constraint->upsize(); };
+			$image->widen(320, $callback)->heighten(180, $callback);
+
+            $image->save(public_path('assets/portfolio/thumb_' . $name));
+
+            $project->image = $name;
 
 		}
 
