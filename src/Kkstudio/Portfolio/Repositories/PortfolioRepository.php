@@ -40,17 +40,29 @@ class PortfolioRepository {
 		return Category::orderBy('position')->get();
 	}
 
-	public function create($slug, $name, $description, $image) {
+	public function create($slug, $name, $description, $image, $position) {
 
 		return Project::create([
 
 			'slug' => $slug,
 			'name' => $name,
 			'description' => $description,
-			'image' => $image
+			'image' => $image,
+			'position' => $position
 
 		]);
 
 	}
+
+	public function max() {
+
+		$position = 0;
+
+		$max = Project::orderBy('position', 'desc')->first();
+		if($max) $position = $max->position;
+
+		return $position;
+
+	}	
 
 }
