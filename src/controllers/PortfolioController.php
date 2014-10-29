@@ -6,6 +6,22 @@ use Kkstudio\Portfolio\Repositories\PortfolioRepository;
 
 class PortfolioController extends Controller {
 
+	public function index($slug)
+	{
+		$projects = m('Portfolio')->projects();
+
+		return v('portfolio.index', [ 'projects' => $projects ]);
+	}
+
+	public function show($slug)
+	{
+		$project = m('Portfolio')->project($slug);
+
+		return v('portfolio.index', [ 'project' => $project ]);
+	}
+
+	// Admin
+
 	public function admin(PortfolioRepository $repo) {
 
 		$projects = $repo->all();
