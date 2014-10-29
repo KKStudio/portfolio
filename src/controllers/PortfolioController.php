@@ -44,7 +44,9 @@ class PortfolioController extends Controller {
 
 		}
 
-		$project = $projects->create($slug, $name, $description, $image);
+		$lp = $projects->max() + 1;
+
+		$project = $projects->create($slug, $name, $description, $image, $lp);
 
 		\Flash::success('Project created successfully.');
 
