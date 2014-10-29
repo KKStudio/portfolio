@@ -46,17 +46,17 @@ class PortfolioController extends Controller {
 
 		if(\Input::hasFile('image')) {
 
-			$name = \Str::random(32) . \Str::random(32) . '.png';
+			$image_name = \Str::random(32) . \Str::random(32) . '.png';
 			$image = \Image::make(\Input::file('image')->getRealPath());
 
-            $image->save(public_path('assets/portfolio/' . $name));
+            $image->save(public_path('assets/portfolio/' . $image_name));
 
             $callback = function ($constraint) { $constraint->upsize(); };
 			$image->widen(320, $callback)->heighten(180, $callback);
 
-            $image->save(public_path('assets/portfolio/thumb_' . $name));
+            $image->save(public_path('assets/portfolio/thumb_' . $image_name));
 
-            $image = $name;
+            $image = $image_name;
 
 		}
 
@@ -105,17 +105,17 @@ class PortfolioController extends Controller {
 
 		if(\Input::hasFile('image')) {
 
-			$name = \Str::random(32) . \Str::random(32) . '.png';
+			$image_name = \Str::random(32) . \Str::random(32) . '.png';
 			$image = \Image::make(\Input::file('image')->getRealPath());
 
-            $image->save(public_path('assets/portfolio/' . $name));
+            $image->save(public_path('assets/portfolio/' . $image_name));
 
             $callback = function ($constraint) { $constraint->upsize(); };
 			$image->widen(320, $callback)->heighten(180, $callback);
 
-            $image->save(public_path('assets/portfolio/thumb_' . $name));
+            $image->save(public_path('assets/portfolio/thumb_' . $image_name));
 
-            $project->image = $name;
+            $project->image = $image_name;
 
 		}
 
