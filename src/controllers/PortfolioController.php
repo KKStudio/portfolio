@@ -8,7 +8,7 @@ class PortfolioController extends Controller {
 
 	public function admin(PortfolioRepository $repo) {
 
-		$projects = $repo->projects();
+		$projects = $repo->all();
 
 		return \View::make('portfolio::admin')->with('projects', $projects);
 
