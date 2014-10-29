@@ -17,7 +17,7 @@ class PortfolioController extends Controller {
 	{
 		$project = m('Portfolio')->project($slug);
 
-		return v('portfolio.index', [ 'project' => $project ]);
+		return v('portfolio.show', [ 'project' => $project ]);
 	}
 
 	// Admin
