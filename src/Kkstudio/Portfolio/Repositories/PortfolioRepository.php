@@ -5,7 +5,7 @@ use Kkstudio\Portfolio\Models\Category as Category;
 
 class PortfolioRepository {
 
-	public function projectById($$id) {
+	public function projectById($id) {
 
 		return Project::findOrFail($id);
 		
