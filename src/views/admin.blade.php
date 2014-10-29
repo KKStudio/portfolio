@@ -28,10 +28,10 @@
 					<td>{{ $project->id }}</td>
 					<td>{{ $project->name }}</td>
 					<td>
-						<a href="{{ url('admin/portfolio/' . $project->id . '/edit') }}" class="btn btn-sm btn-primary">edit</a>
+						<a href="{{ url('admin/portfolio/' . $project->slug . '/edit') }}" class="btn btn-sm btn-primary">edit</a>
 					</td>
 					<td>
-						<a href="{{ url('admin/portfolio/' . $project->id . '/delete') }}" class="btn btn-sm btn-danger">delete</a>
+						<a href="{{ url('admin/portfolio/' . $project->slug . '/delete') }}" class="btn btn-sm btn-danger">delete</a>
 					</td>
 					<td>
 						@if($k-1 >= 0)
