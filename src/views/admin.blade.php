@@ -10,6 +10,16 @@
 			Create new project
 		</a>
 
+		{!! Form::open([ 'url' => 'admin/menu/create']) !!}
+
+			{!! Form::hidden('display_name', 'Portfolio') !!}
+			{!! Form::hidden('route', 'portfolio') !!}
+			{!! Form::hidden('params', json_encode([])) !!}
+
+			{!! Form::submit('Add to menu', [ 'class' => 'pull-right btn btn-sm btn-warning']) !!}
+
+		{!! Form::close() !!}
+
 		<div class="clearfix"></div>
 		@if(count($portfolio))
 
