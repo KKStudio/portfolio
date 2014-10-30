@@ -13,7 +13,7 @@ class Category extends Eloquent {
 
 	public function projects() {
 
-		return $this->hasMany('Kkstudio\Portfolio\Project', 'category_id', 'id');
+		return $this->hasMany('Kkstudio\Portfolio\Models\Project', 'category_id', 'id');
 
 	}
 

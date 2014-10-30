@@ -31,6 +31,7 @@
 				<th></th>
 				<th>up</th>
 				<th>down</th>
+				<th></th>
 			</thead>
 			<tbody>
 				@foreach($portfolio as $k => $project)
@@ -66,6 +67,21 @@
 
 						{!! Form::close() !!}
 						@endif
+
+					</td>
+					<td>
+
+
+						{!! Form::open([ 'url' => 'admin/menu/create']) !!}
+
+							{!! Form::hidden('display_name', $project->name) !!}
+							{!! Form::hidden('route', 'portfolio/{$slug}') !!}
+							{!! Form::hidden('params', json_encode(['slug' => $project->slug])) !!}
+
+							{!! Form::submit('Add to menu', [ 'class' => 'pull-right btn btn-sm btn-warning']) !!}
+
+						{!! Form::close() !!}
+
 
 					</td>
 				</tr>

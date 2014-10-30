@@ -13,7 +13,7 @@ class Project extends Eloquent {
 
 	public function category() {
 
-		return $this->belongsTo('Kkstudio\Portfolio\Category', 'category_id', 'id');
+		return $this->belongsTo('Kkstudio\Portfolio\Models\Category', 'category_id', 'id');
 
 	}
 
