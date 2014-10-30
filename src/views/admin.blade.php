@@ -6,6 +6,10 @@
 
 	<div class=""> 
 
+		<a href="{{ url('admin/portfolio/settings') }}" class="btn btn-default btn-lg pull-right" style="margin-left: 10px;">
+			<i class="glyphicon glyphicon-cog"></i>
+		</a>
+
 		<a href="{{ url('admin/portfolio/create') }}" style="margin-left: 10px;" class="btn btn-lg btn-success pull-right">
 			Create new project
 		</a>
