@@ -30,7 +30,7 @@
 			{!! Form::text('name', '', [ 'class' => 'form-control' ]) !!}
 
 			<h3>{!! Form::label('description', 'Project description') !!}</h3>
-			{!! Form::textarea('description', '', [ 'class' => 'form-control', 'rows' => 10 ]) !!}
+			{!! Form::textarea('description', '', [ 'class' => 'editor form-control', 'rows' => 10 ]) !!}
 
 		{!! Form::close() !!}
 
