@@ -39,7 +39,7 @@ class PortfolioController extends Controller {
 	{
 		if(! \Request::get('name')) {
 
-			\Flash::error('Please provide a name.');
+			\Flash::error('Podaj nazwę projektu.');
 
 			return \Redirect::back()->withInput();
 
@@ -54,7 +54,7 @@ class PortfolioController extends Controller {
 
 		if($exists) {
 
-			\Flash::error('Project with that name already exists.');
+			\Flash::error('Projekt o tej nazwie już istnieje.');
 
 			return \Redirect::back()->withInput();
 
@@ -80,7 +80,7 @@ class PortfolioController extends Controller {
 
 		$project = $projects->create($slug, $name, $description, $image, $lp);
 
-		\Flash::success('Project created successfully.');
+		\Flash::success('Pomyślnie stworzono projekt.');
 
 		return \Redirect::to('admin/portfolio');
 
@@ -99,7 +99,7 @@ class PortfolioController extends Controller {
 
 		if(! \Request::get('name')) {
 
-			\Flash::error('Please provide a name.');
+			\Flash::error('Musisz podać nazwę projektu.');
 
 			return \Redirect::back()->withInput();
 
@@ -113,7 +113,7 @@ class PortfolioController extends Controller {
 
 		if($exists && $exists->id != $project->id) {
 
-			\Flash::error('Project with that name already exists.');
+			\Flash::error('Projekt o tej nazwie już istnieje.');
 
 			return \Redirect::back()->withInput();
 
@@ -141,7 +141,7 @@ class PortfolioController extends Controller {
 
 		$project->save();	
 
-		\Flash::success('Project edited successfully.');
+		\Flash::success('Pomyślnie edytowano projekt.');
 
 		return \Redirect::to('admin/portfolio/'.$slug.'/edit');
 
@@ -159,7 +159,7 @@ class PortfolioController extends Controller {
 		$project = $projects->project($slug);
 		$project->delete();
 
-		\Flash::success('Project deleted.');
+		\Flash::success('Projektu usunięty.');
 
 		return \Redirect::to('admin/portfolio');
 	}
@@ -175,7 +175,7 @@ class PortfolioController extends Controller {
 
 		$first->moveAfter($second);
 
-		\Flash::success('Sorted.');
+		\Flash::success('Posortowano.');
 
 		return \Redirect::back();
 

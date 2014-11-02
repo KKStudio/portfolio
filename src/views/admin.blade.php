@@ -2,7 +2,7 @@
 
 @section('content')
 
-	<h3 class="pull-left">Projects</h3>
+	<h3 class="pull-left">Projekty</h3>
 
 	<div class=""> 
 
@@ -11,7 +11,7 @@
 		</a>
 
 		<a href="{{ url('admin/portfolio/create') }}" style="margin-left: 10px;" class="btn btn-lg btn-success pull-right">
-			Create new project
+			Stwórz nowy projekt
 		</a>
 
 		{!! Form::open([ 'url' => 'admin/menu/create']) !!}
@@ -30,11 +30,11 @@
 		<table class="table table-striped">
 			<thead>
 				<th>#</th>
-				<th>Name</th>
+				<th>Nazwa</th>
 				<th></th>
 				<th></th>
-				<th>up</th>
-				<th>down</th>
+				<th>wyżej</th>
+				<th>niżej</th>
 				<th></th>
 			</thead>
 			<tbody>
@@ -43,10 +43,10 @@
 					<td>{{ $project->id }}</td>
 					<td>{{ $project->name }}</td>
 					<td>
-						<a href="{{ url('admin/portfolio/' . $project->slug . '/edit') }}" class="btn btn-sm btn-primary">edit</a>
+						<a href="{{ url('admin/portfolio/' . $project->slug . '/edit') }}" class="btn btn-sm btn-primary">edytuj</a>
 					</td>
 					<td>
-						<a href="{{ url('admin/portfolio/' . $project->slug . '/delete') }}" class="btn btn-sm btn-danger">delete</a>
+						<a href="{{ url('admin/portfolio/' . $project->slug . '/delete') }}" class="btn btn-sm btn-danger">usuń</a>
 					</td>
 					<td>
 						@if($k-1 >= 0)
@@ -55,7 +55,7 @@
 							{!! Form::hidden('id1', $portfolio[$k-1]->id) !!}
 							{!! Form::hidden('id2', $project->id) !!}
 
-							{!! Form::submit('move up', [ 'class' => 'btn-sm btn btn-success']) !!}
+							{!! Form::submit('w górę', [ 'class' => 'btn-sm btn btn-success']) !!}
 
 						{!! Form::close() !!}
 						@endif
@@ -67,7 +67,7 @@
 							{!! Form::hidden('id1', $project->id) !!}
 							{!! Form::hidden('id2', $portfolio[$k+1]->id) !!}
 
-							{!! Form::submit('move down', [ 'class' => 'btn-sm btn btn-success']) !!}
+							{!! Form::submit('w dół', [ 'class' => 'btn-sm btn btn-success']) !!}
 
 						{!! Form::close() !!}
 						@endif
@@ -93,7 +93,7 @@
 			</tbody>
 		</table>
 		@else
-			<p class="text-muted">No projects found.</p>
+			<p class="text-muted">Nie znaleziono projektów.</p>
 		@endif
 
 	</div>
