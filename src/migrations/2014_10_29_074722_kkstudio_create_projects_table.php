@@ -17,11 +17,11 @@ class KkstudioCreateProjectsTable extends Migration {
 			$table->increments('id');
 			$table->string('name');
 			$table->string('slug');
-			$table->text('description');
-			$table->integer('category_id');
-			$table->string('image');
+			$table->text('description')->nullable();
+			$table->integer('category_id')->nullable();
+			$table->string('image')->nullable();
 			$table->integer('position');
-			$table->timestamps();
+			$table->nullableTimestamps();
 
 		});
 	}
