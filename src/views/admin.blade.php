@@ -20,7 +20,7 @@
 			{!! Form::hidden('route', 'portfolio') !!}
 			{!! Form::hidden('params', json_encode([])) !!}
 
-			{!! Form::submit('Add to menu', [ 'class' => 'pull-right btn btn-lg btn-warning']) !!}
+			{!! Form::submit('Dodaj do menu', [ 'class' => 'pull-right btn btn-lg btn-warning']) !!}
 
 		{!! Form::close() !!}
 
