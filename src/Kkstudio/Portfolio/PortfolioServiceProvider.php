@@ -23,7 +23,7 @@ class PortfolioServiceProvider extends ServiceProvider {
 		\Route::get('portfolio', '\Kkstudio\Portfolio\Controllers\PortfolioController@index');
 		\Route::get('portfolio/{slug}', '\Kkstudio\Portfolio\Controllers\PortfolioController@show');
 
-		\Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function() {
+		\Route::group(['prefix' => 'admin', 'before' => 'admin'], function() {
 
 			\Route::get('portfolio', '\Kkstudio\Portfolio\Controllers\PortfolioController@admin');
 
