@@ -6,6 +6,13 @@ use Kkstudio\Portfolio\Repositories\PortfolioRepository;
 
 class PortfolioController extends Controller {
 
+	protected $repo;
+
+	public function __construct(PortfolioRepository $repo)
+	{
+		$this->repo = $repo;
+	}
+
 	public function index()
 	{
 		$projects = m('Portfolio')->projects();
@@ -22,9 +29,9 @@ class PortfolioController extends Controller {
 
 	// Admin
 
-	public function admin(PortfolioRepository $repo) {
+	public function admin() {
 
-		$projects = $repo->all();
+		$projects = $this->repo->all();
 
 		return \View::make('portfolio::admin')->with('portfolio', $projects);
 
@@ -35,7 +42,7 @@ class PortfolioController extends Controller {
 		return \View::make('portfolio::create');
 	}
 
-	public function postCreate(PortfolioRepository $projects) 
+	public function postCreate() 
 	{
 		if(! \Request::get('name')) {
 
@@ -50,7 +57,7 @@ class PortfolioController extends Controller {
 		$description = \Request::get('description');
 		$image = '';
 
-		$exists = $projects->project($slug);
+		$exists = $this->repo->project($slug);
 
 		if($exists) {
 
@@ -76,9 +83,9 @@ class PortfolioController extends Controller {
 
 		}
 
-		$lp = $projects->max() + 1;
+		$lp = $this->repo->max() + 1;
 
-		$project = $projects->create($slug, $name, $description, $image, $lp);
+		$project = $this->repo->create($slug, $name, $description, $image, $lp);
 
 		\Flash::success('Pomyślnie stworzono projekt.');
 
@@ -86,16 +93,16 @@ class PortfolioController extends Controller {
 
 	}
 
-	public function edit($slug, PortfolioRepository $projects) 
+	public function edit($slug) 
 	{
-		$project = $projects->project($slug);
+		$project = $this->repo->project($slug);
 
 		return \View::make('portfolio::edit')->with('project', $project);
 	}
 
-	public function postEdit($slug, PortfolioRepository $projects) 
+	public function postEdit($slug) 
 	{
-		$project = $projects->project($slug);
+		$project = $this->repo->project($slug);
 
 		if(! \Request::get('name')) {
 
@@ -109,7 +116,7 @@ class PortfolioController extends Controller {
 		$slug = \Str::slug($name);
 		$description = \Request::get('description');
 
-		$exists = $projects->project($slug);
+		$exists = $this->repo->project($slug);
 
 		if($exists && $exists->id != $project->id) {
 
@@ -147,16 +154,16 @@ class PortfolioController extends Controller {
 
 	}
 
-	public function delete($slug, PortfolioRepository $projects) 
+	public function delete($slug) 
 	{
-		$project = $projects->project($slug);
+		$project = $this->repo->project($slug);
 
 		return \View::make('portfolio::delete')->with('project', $project);
 	}
 
-	public function postDelete($slug, PortfolioRepository $projects) 
+	public function postDelete($slug) 
 	{
-		$project = $projects->project($slug);
+		$project = $this->repo->project($slug);
 		$project->delete();
 
 		\Flash::success('Projektu usunięty.');
@@ -164,7 +171,7 @@ class PortfolioController extends Controller {
 		return \Redirect::to('admin/portfolio');
 	}
 
-	public function swap(PortfolioRepository $portfolio) 
+	public function swap() 
 	{
 
 		$id1 = \Request::get('id1');
