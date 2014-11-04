@@ -10,6 +10,7 @@ class PortfolioController extends Controller {
 
 	public function __construct(PortfolioRepository $repo)
 	{
+		if(! m('Portfolio')->enabled()) return \App::abort('404');
 		$this->repo = $repo;
 	}
 
