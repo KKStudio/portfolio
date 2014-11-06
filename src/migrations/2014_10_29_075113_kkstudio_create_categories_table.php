@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class KkstudioCreateCategoriesTable extends Migration {
+class KkstudioCreatePortfolioCategoriesTable extends Migration {
 
 	/**
 	 * Run the migrations.
