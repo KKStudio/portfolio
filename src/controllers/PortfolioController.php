@@ -76,7 +76,7 @@ class PortfolioController extends Controller {
             $image->save(public_path('assets/portfolio/' . $image_name));
 
             $callback = function ($constraint) { $constraint->upsize(); };
-			$image->widen(480, $callback)->heighten(270, $callback);
+			$image->widen(480, $callback)->heighten(270, $callback)->resize(480,270);
 
             $image->save(public_path('assets/portfolio/thumb_' . $image_name));
 
@@ -135,7 +135,7 @@ class PortfolioController extends Controller {
             $image->save(public_path('assets/portfolio/' . $image_name));
 
             $callback = function ($constraint) { $constraint->upsize(); };
-			$image->widen(480, $callback)->heighten(270, $callback);
+			$image->widen(480, $callback)->heighten(270, $callback)->resize(480,270);
 
             $image->save(public_path('assets/portfolio/thumb_' . $image_name));
 
